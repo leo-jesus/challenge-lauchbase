@@ -1,0 +1,249 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap";
+:root{
+    --color-rocketseat:#9346d1;
+    --color-launchbase:#fba10f;
+    --color-gostack:#048a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #282828;
+    color: white;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+header {
+    padding: 20px;
+    border-bottom: 1 solid #333;
+    background: rgba(0, 0, 0, 0.30);
+}
+
+.links {
+    text-align: center;
+}
+.links a{
+    color: whitesmoke;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 12px;
+    text-decoration: none;
+}
+.links a:hover{
+    color: #9346d1;
+    transition: color 300ms;
+}
+#packet{
+    text-align: center;
+    padding: 30px;
+}
+#packet img{
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    border:5px solid rgba(0, 0, 0, 0.30);
+}
+#packet h1{
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+}
+#packet h2{
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 10px;
+
+}
+
+#packet p {
+    max-width: 500px;
+    margin: 30px auto;
+    font-size: 20px;
+    line-height: 30px;
+}
+#packet ul li{
+    list-style-type: none;
+    font-size: 30px;
+    line-height: 15px;
+    display: inline-block;
+    margin: 20px 100px  ;
+}
+#packet ul li:hover{
+    transform: scale(1.050);
+    transition: 0.7s ease;
+    color: #9346d1;
+    
+}
+
+#links-company a{
+    border-bottom: 1px solid var(--color-rocketseat);
+}
+
+/* ===page-content=== */
+
+.social-media{
+    display: grid;
+    grid-template-rows: 1fr;
+    max-height: 80px;
+    width:100%;
+    justify-content: center;
+    margin-top: 28px;
+}
+.packet{
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* ===CARDS=== */
+
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    margin: 0 auto;
+    gap: 20px;
+    max-width: 1000px;   
+}
+.card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background:rgba(0, 0, 0, 0.30);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    margin: 0 30px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card-image {
+    grid-area: image;
+    margin-top: 15px;
+  }
+ 
+  .card-text {
+    grid-area: text;
+   
+  }
+  
+  .card-stats  {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+    padding: 6px;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+
+
+#starter .card-stats{
+    background: var(--color-rocketseat);
+
+  }
+  #launchbase .card-stats{
+    background: var(--color-launchbase);
+
+  }
+  #gostack .card-stats{
+    background: var(--color-gostack);
+
+  }
+  .card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    padding:10px;
+  }
+.card:hover{
+    transform: scale(1.10);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.6);
+    transition: 1000ms;
+}
+.card#starter:hover{
+    border: 1px solid var(--color-rocketseat);
+}
+.card#launchbase:hover{
+    border: 1px solid var(--color-launchbase);
+}
+.card#gostack:hover{
+    border: 1px solid var(--color-gostack);
+}
+
+/* ===MODAL=== */
+
+.modal-overlay{
+    background-color: rgba(0, 0, 0, 0.30);
+    width: 100%;
+    height: 100%;
+    position: fixed;    
+    top: 0;
+    opacity: 0;
+    visibility: hidden;   
+    
+}
+.modal{
+    background-color: black;
+    width: 90%;
+    height: 90%;
+    margin: 5vh auto;
+    position: relative;
+    transform: scale(0.6);
+    
+}
+
+.modal .close-modal{
+    color: whitesmoke;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+
+}
+
+.modal .max-modal{
+    color: whitesmoke;
+    position: absolute;
+    right: 40px;
+    top: 8px;
+    cursor: pointer;
+
+     
+}
+
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s ease;
+}
+
+iframe{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+}
+.modal-in-full-screen{
+    transform: scale(1.090);
+    transition: 0.5s ease;
+}
