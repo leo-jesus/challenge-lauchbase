@@ -12,65 +12,34 @@
         Cursos
     </div>
     <section class="cards">
-        <div class="card" id="starter">
-            <div class="card-image">
-                <img src="https://skylab.rocketseat.com.br/static/64c237ccff807c054339a62d53b4b402.svg" alt="logo starter course">
-            </div>
-            <div class="card-text">
-                <h2>Starter</h2>
-                <p>Cursos 100% online e gratuitos para você entrar com o pé direito nas tecnologias mais desejadas do mercado.</p>
-            </div>
-            <div class="card-stats">
-                <div class="stat border">
-                    <div class="value">Preço</div>
-                    <div class="type">FREE</div>
-                </div>
-                <div class="stat">
-                    <div class="value">32</div>
-                    <div class="type">Módulos</div>
-                </div>
-            </div>
-        </div>
+        {% for card in cards %}
 
-        <div class="card" id="launchbase">
-            <div class="card-image">
-                <img src="https://skylab.rocketseat.com.br/static/0828532024cb46921a6b5e941f8d788d.svg" alt="logo starter course">
-            </div>
-            <div class="card-text">
-                <h2>Launchbase</h2>
-                <p>Domine o desenvolvimento web do zero e acelere na direção dos seus objetivos.</p>
-            </div>
-            <div class="card-stats">
-                <div class="stat border">
-                    <div class="value">Preço</div>
-                    <div class="type">Descrubra</div>
+            <div class="card" id="{{card.id}}">
+                <div class="card-image">
+                    <img src="{{card.img}}" alt="Imagem do curso {{card.title}}">
                 </div>
-                <div class="stat">
-                    <div class="value">80</div>
-                    <div class="type">Módulos</div>
+                <div class="card-text">
+                    <h2>{{card.title}}</h2>
+                    <p>
+                        {{card.description}}
+                    </p>
                 </div>
-            </div>
-        </div>
-
-        <div class="card" id="gostack">
-            <div class="card-image">
-                <img src="https://skylab.rocketseat.com.br/static/83a178a0653dab1d55e2ed7946465975.svg" alt="logo starter course">
-            </div>
-            <div class="card-text">
-                <h2>GoStack</h2>
-                <p>Domine o back-end, o front-end e o mobile através do método que vai te guiar direto ao ponto na direção dos seus objetivos.</p>
-            </div>
-            <div class="card-stats">
-                <div class="stat border">
-                    <div class="value">Preço</div>
-                    <div class="type">Descrubra</div>
-                </div>
-                <div class="stat">
-                    <div class="value">100</div>
-                    <div class="type">Módulos</div>
+                <div class="card-stats">
+                    <div class="stat border">
+                        <div class="value">Preço</div>
+                        <div class="type">
+                            {{card.price}}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="value">
+                            {{card.modules}}
+                        </div>
+                        <div class="type">Módulos</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endfor %}
 
     </section>
 
