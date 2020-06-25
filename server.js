@@ -3,15 +3,14 @@ const nunjucks = require('nunjucks')
 const server = express()
 
 const cards = require('./data-cards')
-const layout = require('./data-layout')
-
 
 server.use(express.static('public'))
 server.set("view engine", "njk")
 
 nunjucks.configure("views", {
     express: server,
-    autoescape: false
+    autoescape: false,
+    noCache: true
 })
 
 server.get("/", (req, res) => {
@@ -23,14 +22,26 @@ server.get("/", (req, res) => {
             que te leve na direção certa.</p>`
     }
 
-
-
     return res.render("about", { about })
 })
 
 server.get("/courses", (req, res) => {
-    return res.render("courses", { cards} )
+    return res.render("courses", { cards })
 })
+
+server.get("/courses/:id", function (req, res) {
+    const id = req.params.id;
+    const course = cards.find((course) => {
+        if (course.id == id)
+            return true
+    })
+
+    if (!course) {
+        return res.render("not-found")
+    }
+    return res.render("course", { card: course })
+})
+
 
 server.use((req, res) => {
     res.status(404).render("not-found")

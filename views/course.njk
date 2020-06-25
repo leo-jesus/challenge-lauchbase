@@ -1,0 +1,11 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    {% block head %}
+        <title>{{card.title}}</title>
+
+    {% endblock head %}
+        <iframe class="course" src="http://rocketseat.com.br/{{card.id}}" frameborder="0"></iframe>
+
+{% endblock content %}
